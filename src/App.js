@@ -13,6 +13,9 @@ const Header = () => {
 }
 
 const CreateForm = () => {
+  const [task, setTask] = useState('Example task name')
+  const [time, setTime] = useState(25)
+
   return (
     <form>
       <div className="form-row">
@@ -21,14 +24,16 @@ const CreateForm = () => {
           <input type="text"
                  className="form-control"
                  id="task"
-                 defaultValue="Example task name"/>
+                 value={task}
+                 onChange={(event) => setTask(event.target.value)}/>
         </div>
         <div className="form-group col-md-6">
           <label htmlFor="time">Time</label>
           <input type="number"
                  className="form-control"
                  id="time"
-                 defaultValue="25"/>
+                 value={time}
+                 onChange={(event) => setTime(event.target.value)}/>
         </div>
       </div>
       <button type="submit" className="btn btn-primary">Add</button>
