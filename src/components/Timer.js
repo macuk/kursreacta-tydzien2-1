@@ -5,7 +5,7 @@ import ProgressBar from "./ProgressBar"
 import Buttons from "./Buttons"
 import Pauses from "./Pauses"
 
-const Timer = ({task, time}) => {
+const Timer = ({id, task, time, handleRemove}) => {
   const [status, setStatus] = useState('stopped')
   const [pauses, setPauses] = useState(0)
   const [secondsLeft, setSecondsLeft] = useState(time * 60)
@@ -45,10 +45,13 @@ const Timer = ({task, time}) => {
       <hr />
       <ProgressBar prc={prc} />
       <hr />
-      <Buttons status={status}
+      <Buttons id={id}
+               status={status}
                onStart={handleStart}
                onStop={handleStop}
-               onPause={handlePause} />
+               onPause={handlePause}
+               onRemove={handleRemove}
+      />
       <hr />
       <Pauses pauses={pauses} />
     </>
