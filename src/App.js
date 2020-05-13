@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 import './App.css'
 import Header from "./components/Header"
 import CreateForm from "./components/CreateForm"
-import Timer from "./components/Timer"
+import TimerList from "./components/TimerList"
 
 const App = () => {
   const [tasks, setTasks] = useState([
@@ -11,9 +11,9 @@ const App = () => {
     { id: uuidv4(), name: 'This is second task', time: 15 }
   ])
 
-  const handleAdd = () => {
+  const handleAdd = ({name, time}) => {
     const id = uuidv4()
-    const newTask = { id, name: `test - ${id}`, time: 20 }
+    const newTask = { id, name, time }
     setTasks([...tasks, newTask])
   }
 
@@ -27,10 +27,7 @@ const App = () => {
       <hr />
       <CreateForm />
       <hr />
-      {tasks.map(task =>
-        <Timer key={task.id} id={task.id} task={task.name} time={task.time} handleRemove={handleRemove} />
-      )}
-      <button onClick={handleAdd}>ADD</button>
+      <TimerList tasks={tasks} handleRemove={handleRemove}/>
     </>
   )
 }
