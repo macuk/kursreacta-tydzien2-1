@@ -3,9 +3,12 @@ import React from "react"
 const Header = () => {
   return (
     <h1>
-      <span role="img"
-            aria-label="tomato"
-            aria-labelledby="header">🍅 </span>
+      <span
+        role="img"
+        aria-label="tomato"
+        aria-labelledby="header"
+      >🍅&nbsp;
+      </span>
       Pomodoro Timer
     </h1>
   )
