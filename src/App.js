@@ -6,12 +6,9 @@ import CreateForm from "./components/CreateForm"
 import TimerList from "./components/TimerList"
 
 const App = () => {
-  const [tasks, setTasks] = useState([
-    {id: uuidv4(), name: 'This is first task', time: 10},
-    {id: uuidv4(), name: 'This is second task', time: 15}
-  ])
+  const [tasks, setTasks] = useState([])
 
-  const handleAdd = ({name, time}) => {
+  const handleCreate = ({name, time}) => {
     const id = uuidv4()
     const newTask = {id, name, time}
     setTasks([...tasks, newTask])
@@ -25,7 +22,7 @@ const App = () => {
     <>
       <Header/>
       <hr/>
-      <CreateForm/>
+      <CreateForm handleCreate={handleCreate}/>
       <hr/>
       <TimerList
         tasks={tasks}
