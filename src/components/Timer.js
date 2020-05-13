@@ -39,22 +39,33 @@ const Timer = ({id, task, time, handleRemove}) => {
 
   return (
     <>
-      <TaskName name={task}/>
+      <div className="row">
+        <div className="col-md-8">
+          <TaskName name={task}/>
+        </div>
+        <div className="col-md-4 text-right">
+          <Buttons
+            id={id}
+            status={status}
+            handleStart={handleStart}
+            handleStop={handleStop}
+            handlePause={handlePause}
+            handleRemove={handleRemove}
+          />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-2">
+          <Clock secondsLeft={secondsLeft}/>
+        </div>
+        <div className="col-md-8">
+          <ProgressBar prc={prc}/>
+        </div>
+        <div className="col-md-2">
+          <Pauses pauses={pauses}/>
+        </div>
+      </div>
       <hr/>
-      <Clock secondsLeft={secondsLeft}/>
-      <hr/>
-      <ProgressBar prc={prc}/>
-      <hr/>
-      <Buttons
-        id={id}
-        status={status}
-        handleStart={handleStart}
-        handleStop={handleStop}
-        handlePause={handlePause}
-        handleRemove={handleRemove}
-      />
-      <hr/>
-      <Pauses pauses={pauses}/>
     </>
   )
 }

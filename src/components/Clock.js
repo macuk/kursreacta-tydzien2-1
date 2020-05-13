@@ -6,7 +6,7 @@ const Clock = ({secondsLeft}) => {
   const withZeros = (number) => ('00' + number).slice(-2)
 
   return (
-    <pre>{withZeros(min)}:{withZeros(sec)}</pre>
+    <h3>{withZeros(min)}:{withZeros(sec)}</h3>
   )
 }
 
