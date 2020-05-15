@@ -11,13 +11,19 @@ const Timer = ({id, task, time, handleRemove}) => {
   const [secondsLeft, setSecondsLeft] = useState(time * 60)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (status === 'started' && secondsLeft > 0) {
-        setSecondsLeft(secondsLeft - 1)
-      }
-    }, 1000)
-    return () => clearInterval(timer)
-  }, [status, secondsLeft, time])
+    const interval = setInterval(tick, 1000)
+    console.log('set interval', interval)
+    return () => {
+      console.log('clear interval', interval)
+      clearInterval(interval)
+    }
+  })
+
+  const tick = () => {
+    if (status === 'started' && secondsLeft > 0) {
+      setSecondsLeft(secondsLeft - 1)
+    }
+  }
 
   const handleStart = () => {
     setStatus('started')
