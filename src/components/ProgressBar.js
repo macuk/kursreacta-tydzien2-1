@@ -1,6 +1,8 @@
 import React from "react"
 
-const ProgressBar = ({percent}) => {
+const ProgressBar = ({time, secondsLeft}) => {
+  const percent = 100 - Math.floor((secondsLeft / (time * 60)) * 100)
+
   return (
     <div className="progress">
       <div
