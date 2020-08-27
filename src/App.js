@@ -7,7 +7,7 @@ import TimerList from "./components/TimerList"
 
 const App = () => {
   const [tasks, setTasks] = useState([])
-  const [visibility, setvisibility] = useState('hide')
+  const [border, setBorder] = useState('')
 
   const handleCreate = ({name, time}) => {
     const id = uuidv4()
@@ -20,7 +20,7 @@ const App = () => {
   }
 
   const handleOnTouchEnd = () => {
-    setvisibility('show')
+    setBorder('removeBorder')
   }
 
   return (
@@ -33,8 +33,7 @@ const App = () => {
         tasks={tasks}
         handleRemove={handleRemove}
       />
-      <button onTouchEnd={handleOnTouchEnd}>Test button</button>
-      <button className={visibility}>onTouchEnd</button>
+      <button onTouchEnd={handleOnTouchEnd} className={border}>Test</button>
     </>
   )
 }

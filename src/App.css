@@ -1,11 +1,7 @@
 button:hover {
-  color: red;
+  border: 1px solid blue;
 }
 
-.hide {
-  display: none;
-}
-
-.show {
-  display: block;
+.removeBorder {
+  border: none;
 }
