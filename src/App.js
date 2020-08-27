@@ -4,7 +4,6 @@ import './App.css'
 import Header from "./components/Header"
 import CreateForm from "./components/CreateForm"
 import TimerList from "./components/TimerList"
-import css from './index.css'
 
 const App = () => {
   const [tasks, setTasks] = useState([])
