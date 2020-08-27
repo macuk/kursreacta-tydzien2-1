@@ -18,6 +18,10 @@ const App = () => {
     setTasks(tasks.filter(task => task.id !== id))
   }
 
+  const handleOnTouchMove = () => {
+    console.log('handleOnTouchMove')
+  }
+
   return (
     <>
       <Header/>
@@ -28,7 +32,7 @@ const App = () => {
         tasks={tasks}
         handleRemove={handleRemove}
       />
-      <button onTouchMove="console.log('ok')">Test button</button>
+      <button onTouchMove={handleOnTouchMove}>Test button</button>
     </>
   )
 }
