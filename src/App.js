@@ -28,7 +28,7 @@ const App = () => {
         tasks={tasks}
         handleRemove={handleRemove}
       />
-      <button ontouchmove="console.log('ok')">Test button</button>
+      <button onTouchMove="console.log('ok')">Test button</button>
     </>
   )
 }
